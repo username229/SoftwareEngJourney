@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #141414;
+    color: #fff;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+.netflix-app {
+    min-height: 100vh;
+}
+
+/* Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: linear-gradient(180deg, rgba(0,0,0,0.7) 10%, transparent);
+    transition: background-color 0.4s;
+}
+
+.main-header.scrolled {
+    background-color: #141414;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 60px;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.logo {
+    height: 30px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: #e5e5e5;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: #fff;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.search-icon,
+.notifications {
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.search-icon:hover,
+.notifications:hover {
+    color: #ccc;
+}
+
+.profile-menu {
+    position: relative;
+    cursor: pointer;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    background: #e50914;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #000;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px;
+    display: none;
+    min-width: 120px;
+}
+
+.profile-menu:hover .dropdown {
+    display: block;
+}
+
+.dropdown a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.dropdown a:hover {
+    text-decoration: underline;
+}
+
+/* Hero Section */
+.hero-section {
+    height: 80vh;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('./public/metflix.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 500px;
+    padding: 0 60px;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.hero-description {
+    font-size: 18px;
+    line-height: 1.4;
+    margin-bottom: 30px;
+    color: #e5e5e5;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-play,
+.btn-info {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-play {
+    background: #fff;
+    color: #000;
+}
+
+.btn-play:hover {
+    background: rgba(255,255,255,0.8);
+}
+
+.btn-info {
+    background: rgba(109,109,110,0.7);
+    color: #fff;
+}
+
+.btn-info:hover {
+    background: rgba(109,109,110,0.4);
+}
+
+.hero-fade {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(transparent, #141414);
+}
+
+/* Content Rows */
+.content-main {
+    padding: 0 60px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 3;
+}
+
+.content-row {
+    margin-bottom: 40px;
+}
+
+.row-title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #e5e5e5;
+}
+
+.content-slider {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.content-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.content-item {
+    min-width: 200px;
+    height: 112px;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.content-item:hover {
+    transform: scale(1.05);
+}
+
+.content-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.content-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0,0,0,0.8));
+    padding: 15px 10px 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.content-item:hover .content-overlay {
+    opacity: 1;
+}
+
+.content-overlay h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.content-rating {
+    font-size: 12px;
+    color: #46d369;
+    font-weight: 600;
+}
+
+.episode-info {
+    font-size: 12px;
+    color: #ccc;
+}
+
+/* Continue Watching Styles */
+.continue-watching {
+    position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: rgba(255,255,255,0.3);
+}
+
+.progress-fill {
+    height: 100%;
+    background: #e50914;
+    transition: width 0.3s;
+}
+
+.progress-fill.w-65 {
+    width: 65%;
+}
+
+.progress-fill.w-32 {
+    width: 32%;
+}
+
+.progress-fill.w-78 {
+    width: 78%;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 40px;
+    }
+    
+    .content-main {
+        padding: 0 40px;
+    }
+    
+    .hero-content {
+        padding: 0 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 20px;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .hero-content {
+        padding: 0 20px;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .content-main {
+        padding: 0 20px;
+    }
+    
+    .content-item {
+        min-width: 150px;
+        height: 84px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .btn-play,
+    .btn-info {
+        width: 100%;
+        max-width: 200px;
+    }
+    
+    .content-item {
+        min-width: 120px;
+        height: 68px;
+    }
+}

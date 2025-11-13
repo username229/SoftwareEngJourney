@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Movies & TV Shows</title>
+    <link rel="stylesheet" href="movies.css">
+</head>
+<body>
+    <div class="netflix-app">
+        <!-- Header Navigation -->
+        <header class="main-header">
+            <nav class="navbar">
+                <div class="nav-left">
+                    <img src="./public/netflix_PNG25.png" class="logo" alt="Netflix">
+                    <ul class="nav-links">
+                        <li><a href="#" class="active">Home</a></li>
+                        <li><a href="#">TV Shows</a></li>
+                        <li><a href="#">Movies</a></li>
+                        <li><a href="#">New & Popular</a></li>
+                        <li><a href="#">My List</a></li>
+                        <li><a href="#">Browse by Languages</a></li>
+                    </ul>
+                </div>
+                <div class="nav-right">
+                    <div class="search-icon">🔍</div>
+                    <div class="notifications">🔔</div>
+                    <div class="profile-menu">
+                        <div class="profile-img">👤</div>
+                        <div class="dropdown">
+                            <a href="#" onclick="signOut()">Sign out</a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">Stranger Things</h1>
+                <p class="hero-description">
+                    When a young boy vanishes, a small town uncovers a mystery involving secret experiments, 
+                    terrifying supernatural forces and one strange little girl.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn-play">▶ Play</button>
+                    <button class="btn-info">ℹ More Info</button>
+                </div>
+            </div>
+            <div class="hero-fade"></div>
+        </section>
+
+        <!-- Content Rows -->
+        <main class="content-main">
+            <div class="content-row">
+                <h2 class="row-title">Trending Now</h2>
+                <div class="content-slider">
+                    <div class="content-item">
+                        <img src="./public/feature-1.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Action Movie</h3>
+                            <div class="content-rating">98% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-2.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Drama Series</h3>
+                            <div class="content-rating">95% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-3.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Comedy Show</h3>
+                            <div class="content-rating">92% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-4.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Sci-Fi Movie</h3>
+                            <div class="content-rating">89% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-1.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Thriller</h3>
+                            <div class="content-rating">96% Match</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <h2 class="row-title">Popular on Netflix</h2>
+                <div class="content-slider">
+                    <div class="content-item">
+                        <img src="./public/feature-2.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Popular Drama</h3>
+                            <div class="content-rating">94% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-3.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Hit Series</h3>
+                            <div class="content-rating">91% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-4.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Blockbuster</h3>
+                            <div class="content-rating">97% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-1.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Original Series</h3>
+                            <div class="content-rating">93% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-2.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Award Winner</h3>
+                            <div class="content-rating">99% Match</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <h2 class="row-title">Netflix Originals</h2>
+                <div class="content-slider">
+                    <div class="content-item">
+                        <img src="./public/feature-4.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Original Movie</h3>
+                            <div class="content-rating">88% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-1.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Netflix Series</h3>
+                            <div class="content-rating">95% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-3.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Exclusive Show</h3>
+                            <div class="content-rating">90% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-2.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Original Documentary</h3>
+                            <div class="content-rating">92% Match</div>
+                        </div>
+                    </div>
+                    <div class="content-item">
+                        <img src="./public/feature-4.png" alt="Movie">
+                        <div class="content-overlay">
+                            <h3>Limited Series</h3>
+                            <div class="content-rating">86% Match</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-row">
+                <h2 class="row-title">Continue Watching</h2>
+                <div class="content-slider">
+                    <div class="content-item continue-watching">
+                        <img src="./public/feature-1.png" alt="Movie">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 65%"></div>
+                        </div>
+                        <div class="content-overlay">
+                            <h3>Series Name</h3>
+                            <div class="episode-info">S2:E5</div>
+                        </div>
+                    </div>
+                    <div class="content-item continue-watching">
+                        <img src="./public/feature-3.png" alt="Movie">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 32%"></div>
+                        </div>
+                        <div class="content-overlay">
+                            <h3>Movie Title</h3>
+                            <div class="episode-info">32 min left</div>
+                        </div>
+                    </div>
+                    <div class="content-item continue-watching">
+                        <img src="./public/feature-2.png" alt="Movie">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 78%"></div>
+                        </div>
+                        <div class="content-overlay">
+                            <h3>Documentary</h3>
+                            <div class="episode-info">Episode 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="movies.js"></script>
+</body>
+</html>

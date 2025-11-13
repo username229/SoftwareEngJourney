@@ -1,0 +1,13 @@
+/* Minimal placeholder styles for GenreFilter so Next build finds this file in Docker */
+.genre-filter {
+  padding: 8px;
+}
+.genre-grid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.genre-chip {
+  padding: 6px 10px;
+  border-radius: 6px;
+}

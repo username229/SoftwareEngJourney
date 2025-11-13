@@ -1,0 +1,349 @@
+.recommendations-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.95);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 2000;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.recommendations-modal {
+  background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%);
+  border-radius: 16px;
+  max-width: 1400px;
+  width: 100%;
+  max-height: 95vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  border: 1px solid #374151;
+  margin-top: 20px;
+
+  .recommendations-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    border-bottom: 1px solid #374151;
+    background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+    border-radius: 16px 16px 0 0;
+
+    .header-content {
+      h2 {
+        color: white;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 16px;
+        margin: 0;
+
+        strong {
+          color: #fbbf24;
+        }
+      }
+    }
+
+    .close-button {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .recommendations-content {
+    padding: 32px;
+
+    .loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+
+      p {
+        color: #d1d5db;
+        font-size: 18px;
+        margin-top: 20px;
+        font-weight: 500;
+      }
+    }
+
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      text-align: center;
+
+      .error-message {
+        color: #fca5a5;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+
+      .retry-button {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #2563eb;
+          transform: translateY(-2px);
+        }
+      }
+    }
+
+    .ai-info {
+      margin-bottom: 32px;
+      text-align: center;
+
+      .ai-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: linear-gradient(45deg, #10b981, #3b82f6);
+        color: white;
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 12px;
+
+        .ai-icon {
+          font-size: 16px;
+        }
+      }
+
+      p {
+        color: #9ca3af;
+        font-size: 14px;
+        margin: 0;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    .recommendations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+
+      .recommendation-item {
+        .recommendation-card {
+          background: #1f2937;
+          border-radius: 12px;
+          overflow: hidden;
+          border: 1px solid #374151;
+          transition: all 0.3s ease;
+          position: relative;
+
+          &:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.4);
+            border-color: #3b82f6;
+          }
+
+          .recommendation-info {
+            padding: 16px;
+
+            .score-badge {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: linear-gradient(45deg, #10b981, #06d6a0);
+              color: white;
+              padding: 8px 12px;
+              border-radius: 20px;
+              font-weight: 700;
+              margin-bottom: 12px;
+              text-align: center;
+              box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+
+              .score-value {
+                font-size: 16px;
+                margin-right: 4px;
+              }
+
+              .score-label {
+                font-size: 12px;
+                opacity: 0.9;
+              }
+            }
+
+            .reasons {
+              h4 {
+                color: #f9fafb;
+                font-size: 14px;
+                font-weight: 600;
+                margin: 0 0 8px 0;
+                display: flex;
+                align-items: center;
+                gap: 6px;
+
+                &:before {
+                  content: "💡";
+                  font-size: 12px;
+                }
+              }
+
+              ul {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                li {
+                  color: #d1d5db;
+                  font-size: 12px;
+                  padding: 4px 0;
+                  display: flex;
+                  align-items: center;
+                  gap: 8px;
+
+                  &:before {
+                    content: "▸";
+                    color: #3b82f6;
+                    font-weight: bold;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .no-recommendations {
+      text-align: center;
+      padding: 60px 20px;
+
+      p {
+        color: #9ca3af;
+        font-size: 18px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 1200px) {
+  .recommendations-modal {
+    .recommendations-content .recommendations-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .recommendations-modal-overlay {
+    padding: 10px;
+  }
+
+  .recommendations-modal {
+    .recommendations-header {
+      padding: 20px 24px;
+
+      .header-content h2 {
+        font-size: 24px;
+      }
+
+      .close-button {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+    }
+
+    .recommendations-content {
+      padding: 24px 20px;
+
+      .recommendations-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .recommendations-modal {
+    .recommendations-content .recommendations-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Animation for modal entrance
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.recommendations-modal {
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+// Scroll bar styling
+.recommendations-modal {
+  scrollbar-width: thin;
+  scrollbar-color: #4b5563 #1f2937;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+
+    &:hover {
+      background: #6b7280;
+    }
+  }
+}

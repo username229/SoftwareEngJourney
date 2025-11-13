@@ -1,0 +1,145 @@
+.loading-spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  .spinner {
+    border: 3px solid #374151;
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  &.small .spinner {
+    width: 20px;
+    height: 20px;
+  }
+
+  &.medium .spinner {
+    width: 40px;
+    height: 40px;
+  }
+
+  &.large .spinner {
+    width: 60px;
+    height: 60px;
+  }
+
+  .loading-text {
+    margin-top: 12px;
+    color: #9ca3af;
+    font-size: 14px;
+  }
+}
+
+.loading-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 20px;
+
+  .dot {
+    border-radius: 50%;
+    background: #3b82f6;
+    animation: dot-bounce 1.4s infinite ease-in-out both;
+
+    &:nth-child(1) { animation-delay: -0.32s; }
+    &:nth-child(2) { animation-delay: -0.16s; }
+    &:nth-child(3) { animation-delay: 0s; }
+  }
+
+  &.small .dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  &.medium .dot {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.large .dot {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+.skeleton-container {
+  background: #1a202c;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: pulse 2s infinite;
+
+  &.small {
+    width: 200px;
+    height: 250px;
+  }
+
+  &.medium {
+    width: 280px;
+    height: 350px;
+  }
+
+  &.large {
+    width: 320px;
+    height: 400px;
+  }
+
+  .skeleton-poster {
+    width: 100%;
+    height: 70%;
+    background: #374151;
+  }
+
+  .skeleton-content {
+    padding: 16px;
+
+    .skeleton-title {
+      height: 20px;
+      background: #374151;
+      border-radius: 4px;
+      margin-bottom: 8px;
+    }
+
+    .skeleton-rating {
+      height: 16px;
+      background: #374151;
+      border-radius: 4px;
+      width: 60%;
+      margin-bottom: 8px;
+    }
+
+    .skeleton-description {
+      height: 14px;
+      background: #374151;
+      border-radius: 4px;
+      width: 80%;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dot-bounce {
+  0%, 80%, 100% { 
+    transform: scale(0);
+  }
+  40% { 
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}

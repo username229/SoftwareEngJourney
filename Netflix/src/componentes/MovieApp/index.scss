@@ -1,0 +1,236 @@
+.movie-app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+}
+
+.app-header {
+  background: rgba(15, 23, 42, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  .header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .brand {
+      h1 {
+        color: #f1f5f9;
+        font-size: 28px;
+        font-weight: 700;
+        margin: 0;
+        background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      p {
+        color: #94a3b8;
+        font-size: 14px;
+        margin: 4px 0 0 0;
+      }
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .user-greeting {
+          color: #e2e8f0;
+          font-weight: 500;
+        }
+
+        .favorites-btn {
+          background: #dc2626;
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #b91c1c;
+          }
+        }
+
+        .logout-btn {
+          background: #374151;
+          color: #d1d5db;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 8px;
+          font-size: 14px;
+          cursor: pointer;
+          transition: background 0.3s ease;
+
+          &:hover {
+            background: #4b5563;
+          }
+        }
+      }
+
+      .login-btn {
+        background: #3b82f6;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+
+        &:hover {
+          background: #2563eb;
+        }
+      }
+    }
+  }
+}
+
+.search-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+
+  .view-controls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+
+    .view-btn {
+      background: #374151;
+      color: #d1d5db;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #4b5563;
+      }
+
+      &.active {
+        background: #3b82f6;
+        color: white;
+      }
+    }
+  }
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px 40px;
+
+  .content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #334155;
+
+    h2 {
+      color: #f1f5f9;
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .results-count {
+      color: #94a3b8;
+      font-size: 14px;
+      background: #374151;
+      padding: 6px 12px;
+      border-radius: 6px;
+    }
+  }
+
+  .movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: 768px) {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 16px;
+    }
+  }
+
+  .load-more-section {
+    text-align: center;
+    margin-top: 40px;
+
+    .load-more-btn {
+      background: #3b82f6;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover:not(:disabled) {
+        background: #2563eb;
+      }
+
+      &:disabled {
+        background: #4b5563;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    
+    p {
+      color: #94a3b8;
+      font-size: 18px;
+      margin: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app-header .header-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+
+    .header-actions .user-menu {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  .search-section .view-controls {
+    flex-wrap: wrap;
+  }
+}
